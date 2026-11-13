@@ -1,0 +1,48 @@
+rules:
+  - name: text files go to data
+    locations: .
+    filters:
+      - extension: txt
+      - not name:
+          startswith: requirements
+    actions:
+      - move: data/
+
+  - name: sql files go to sql
+    locations: .
+    filters:
+      - extension: sql
+    actions:
+      - move: sql/
+
+  - name: md files get lowercase kebab-case names
+    locations:
+      - .
+      - design
+      - docs
+    filters:
+      - regex: '[A-Z]'
+      - extension:
+          - md
+          - MD
+      - not name:
+          startswith:
+            - README
+            - AGENTS
+            - CLAUDE
+            - CHANGELOG
+            - CONTRIBUTING
+            - LICENSE
+    actions:
+      - rename: "{name.lower().replace('_', '-')}-tmp.{extension.lower()}"
+      - rename: "{path.stem.replace('-tmp', '')}{path.suffix}"
+
+  - name: database files go to sql/fixtures
+    locations: .
+    filters:
+      - extension:
+          - db
+          - sqlite
+          - sqlite3
+    actions:
+      - move: sql/fixtures/

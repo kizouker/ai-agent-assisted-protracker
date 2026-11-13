@@ -1,0 +1,84 @@
+ls:
+  .*: exists:0
+  .md: kebabcase | regex:README | regex:AGENTS | regex:CLAUDE | regex:CHANGELOG | regex:CONTRIBUTING | regex:LICENSE
+  .toml: kebabcase
+  .lock: kebabcase
+  .db: exists:0
+  .sqlite: exists:0
+  .sqlite3: exists:0
+  .dir: snakecase
+
+  specs:
+    .*: exists:0
+    .md: kebabcase | regex:README | regex:AGENTS | regex:CLAUDE | regex:CHANGELOG | regex:CONTRIBUTING | regex:LICENSE
+    .dir: kebabcase
+
+    openapi:
+      .*: exists:0
+      .json: kebabcase
+      .md: kebabcase
+
+  docs:
+    .*: exists:0
+    .md: kebabcase | regex:README | regex:AGENTS | regex:CLAUDE | regex:CHANGELOG | regex:CONTRIBUTING | regex:LICENSE
+    .dir: kebabcase
+
+  src:
+    .*: exists:0
+    .py: snakecase | regex:__[a-z]+__
+    .dir: snakecase
+
+  tests:
+    .*: exists:0
+    .py: snakecase | regex:__[a-z]+__
+    .dir: snakecase
+
+    e2e:
+      .*: exists:0
+      .js: kebabcase
+      .cy.js: kebabcase
+      .dir: kebabcase
+
+  scripts:
+    .*: exists:0
+    .py: snakecase
+    .sh: snakecase
+
+  sql:
+    .*: exists:0
+    .sql: kebabcase
+    .md: kebabcase
+    .dir: kebabcase
+
+  data:
+    .dir: snakecase
+
+ignore:
+  - .git
+  - .venv
+  - .idea
+  - .claude
+  - .agents
+  - .github
+  - .vscode
+  - .devcontainer
+  - node_modules
+  - __pycache__
+  - .pytest_cache
+  - .ruff_cache
+  - .ls-lint.yml
+  - .organize.yaml
+  - .python-version
+  - .gitignore
+  - .justfile
+  - package.json
+  - package-lock.json
+  - tests/e2e/screenshots
+  - test/screenshots
+  - .DS_Store
+  - .coverage
+  - .markdown-preview-enhanced
+  - "**/.DS_Store"
+  - "**/.gitkeep"
+  - "requirements*.txt"
+  - "sql/fixtures/*.db"

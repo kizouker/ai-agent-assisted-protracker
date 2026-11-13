@@ -1,0 +1,10 @@
+ls:
+  .*: exists:0
+  .dir: snakecase
+
+  prompts:
+    .*: exists:0
+    .md: kebabcase
+
+ignore:
+  - ls-lint.yml
