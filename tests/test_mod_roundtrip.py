@@ -177,7 +177,8 @@ class TestRoundTrip:
 
     @pytest.mark.parametrize(
         "mod_file",
-        sorted(Path("/Users/raberg/kod/007_hackathons/002_kiroween_2026/ai-agent-assisted-protracker/data").glob("**/*.mod")),
+        sorted(Path("/Users/raberg/kod/007_hackathons/002_kiroween_2026/ai-agent-assisted-protracker/data").glob("**/*.mod"))
+        + sorted(Path("/Users/raberg/kod/007_hackathons/002_kiroween_2026/ai-agent-assisted-protracker/data").glob("**/*.MOD")),
     )
     def test_real_file_roundtrip_byte_identical(self, mod_file: Path) -> None:
         """Round-trip a real .mod file from data/. Skipped when no files exist."""
