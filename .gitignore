@@ -21,3 +21,6 @@ __pycache__/
 .mypy_cache/
 dist/
 build/
+
+# Real Amiga MOD files — not version-controlled (copyright)
+data/mods/
