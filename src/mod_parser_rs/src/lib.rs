@@ -7,6 +7,7 @@
 //! save(&mod_file, "/tmp/out.mod").unwrap();
 //! ```
 
+pub mod inspector;
 pub mod model;
 
 use model::*;
@@ -270,6 +271,7 @@ mod tests {
         out
     }
 
+    #[allow(dead_code)]
     fn byte_eq(a: &[u8], b: &[u8]) -> bool {
         a == b
     }
