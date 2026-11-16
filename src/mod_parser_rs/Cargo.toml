@@ -1,0 +1,17 @@
+[package]
+name = "mod-parser-rs"
+version = "0.1.0"
+edition = "2021"
+description = "4-channel ProTracker .mod parser and serialiser (Ticket 1)"
+
+[[bin]]
+name = "mod-parser-rs"
+path = "src/main.rs"
+
+[lib]
+name = "mod_parser_rs"
+path = "src/lib.rs"
+
+[dependencies]
+
+[dev-dependencies]

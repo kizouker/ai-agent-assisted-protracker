@@ -3,6 +3,8 @@
 ## Introduction
 AI-Assisted ProTracker (**MOD-Agent**) is a tool for the Kiroween 2026 hackathon (category **Resurrection**) that reads, inspects, and writes classic 4-channel Commodore Amiga ProTracker `.mod` files. The composer describes musical ideas in plain language (such as adding a bassline that fits the drums), the **MOD-Agent** writes notes and effects into the patterns, and the composer opens the resulting `.mod` file in a ProTracker clone (`pt2-clone`) or on a real Amiga to listen and edit by hand.
 
+**Target language: Rust.** The core parser, serialiser, and agent logic are implemented in Rust (`src/mod_parser_rs/`). Python is used as a parallel prototype and migration aid; production code moves to Rust.
+
 Source notes: [topic-kiroween-mod-agent.md](../docs/topic-kiroween-mod-agent.md) and byte specification [protracker-mod-format.md](../docs/protracker-mod-format.md).
 
 ## Glossary
@@ -81,6 +83,6 @@ Source notes: [topic-kiroween-mod-agent.md](../docs/topic-kiroween-mod-agent.md)
 
 ## Open Questions
 1. **Väg 1 eller Väg 2 (arkitektur):** Ska MOD-Agent i första versionen vara ett fristående CLI/program som läser och skriver `.mod`-filer bredvid `ProTracker 2.app` (Väg 1), eller byggas in direkt i C-källkoden till `pt2-clone` (Väg 2)?
-2. **Implementationsspråk:** Detta repo är uppsatt för Python (`pyproject.toml` med `uv`), men i anteckningarna nämndes även C++ eller Kotlin — ska vi köra Python i detta repo för Väg 1?
+2. **Implementationsspråk:** ~~Detta repo är uppsatt för Python (`pyproject.toml` med `uv`), men i anteckningarna nämndes även C++ eller Kotlin — ska vi köra Python i detta repo för Väg 1?~~ → **Beslutat:** Rust är målspråk. Python används som prototyp parallellt och migreras stegvis till Rust.
 3. **Tävlingsregler kring befintlig kod:** Om Väg 2 väljs, hur ser Kiroweens regler ut för att forka `pt2-clone` (BSD 3-Clause) jämfört med att skriva ett helt eget verktyg som bara läser/skriver `.mod`-filer?
 4. **Icke-funktionella krav:** Behöver input från dig — se `/req-non-functional`.
