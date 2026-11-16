@@ -25,6 +25,12 @@ pub fn period_to_note(period: u16) -> Option<&'static str> {
     PERIOD_TABLE.iter().find(|(p, _)| *p == period).map(|(_, n)| *n)
 }
 
+/// Return the period for a note name (e.g. "C-2"), or None if not in finetune-0 table.
+/// Accepts both dash and hyphen: "C-2" and "C#2" are valid; octave suffix is 1..3.
+pub fn note_to_period(note: &str) -> Option<u16> {
+    PERIOD_TABLE.iter().find(|(_, n)| *n == note).map(|(p, _)| *p)
+}
+
 // ---------------------------------------------------------------------------
 // SampleHeader
 // ---------------------------------------------------------------------------

@@ -9,6 +9,7 @@
 
 pub mod inspector;
 pub mod model;
+pub mod validator;
 
 use model::*;
 use std::io;
